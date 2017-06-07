@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Http\Requests\Auth\UserRegistration;
 use App\Responses\ApiResponse;
-use App\Services\Auth\AuthService;
+use App\Services\Auth\ApiAuthService;
 use App\Transformers\Api\UserTransformer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ class AuthController extends Controller
      */
     private $apiResponse;
     /**
-     * @var AuthService
+     * @var ApiAuthService
      */
     private $authService;
     /**
@@ -28,10 +28,10 @@ class AuthController extends Controller
     /**
      * AuthController constructor.
      * @param ApiResponse $apiResponse
-     * @param AuthService $authService
+     * @param ApiAuthService $authService
      * @param UserTransformer $userTransformer
      */
-    public function __construct(ApiResponse $apiResponse,AuthService $authService,UserTransformer $userTransformer)
+    public function __construct(ApiResponse $apiResponse,ApiAuthService $authService,UserTransformer $userTransformer)
     {
 
         $this->apiResponse = $apiResponse;

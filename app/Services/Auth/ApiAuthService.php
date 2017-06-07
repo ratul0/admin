@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-class AuthService
+class ApiAuthService
 {
     /**
      * @var UserService
@@ -27,7 +27,7 @@ class AuthService
     private $apiResponse;
 
     /**
-     * AuthService constructor.
+     * ApiAuthService constructor.
      * @param UserService $userService
      * @param ApiResponse $apiResponse
      */
