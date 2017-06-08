@@ -15,3 +15,4 @@
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 {!! Html::script('assets/layouts/layout/scripts/layout.min.js') !!}
 <!-- END THEME LAYOUT SCRIPTS -->
+@yield('scripts')

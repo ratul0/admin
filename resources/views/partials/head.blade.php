@@ -14,7 +14,6 @@
     {!! Html::style('assets/global/plugins/bootstrap/css/bootstrap.min.css') !!}
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    {!! Html::style('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css') !!}
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     {!! Html::style('assets/global/css/components.min.css') !!}
@@ -23,6 +22,8 @@
     {!! Html::style('assets/layouts/layout/css/layout.min.css') !!}
     {!! Html::style('assets/layouts/layout/css/themes/darkblue.min.css') !!}
     {!! Html::style('assets/layouts/layout/css/custom.min.css') !!}
+
+    @yield('styles')
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
