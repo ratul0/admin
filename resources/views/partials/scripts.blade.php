@@ -6,7 +6,6 @@
 <!-- BEGIN CORE PLUGINS -->
 {!! Html::script('assets/global/plugins/jquery.min.js') !!}
 {!! Html::script('assets/global/plugins/bootstrap/js/bootstrap.min.js') !!}
-{!! Html::script('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') !!}
 <!-- END CORE PLUGINS -->
 
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
