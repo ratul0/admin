@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\Auth\UserLogin;
+use App\Http\Requests\Auth\UserRegistration;
 use App\Services\Auth\WebAuthService;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,5 +49,23 @@ class AuthController extends Controller
             return redirect()->route('web.login')->with('success','You have now been signed out.');
         }
         return redirect()->route('web.login')->with('error','You need to login first.');
+    }
+
+    public function register()
+    {
+        return view('auth.register');
+    }
+
+    public function doRegister(UserRegistration $request)
+    {
+        try{
+            $user = $this->webAuthService->register($request);
+            if($user){
+                Auth::login($user);
+                return redirect()->route('dashboard.main')->with('success','Welcome, Your account created successfully.');
+            }
+        }catch (\Exception $exception){
+            return redirect()->back()->withInput()->with('error','something went wrong. Try again.');
+        }
     }
 }

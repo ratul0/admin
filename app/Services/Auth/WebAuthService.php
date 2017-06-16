@@ -49,4 +49,12 @@ class WebAuthService
             'password' => $request->input('password')
         ];
     }
+
+    public function register(Request $request)
+    {
+        $password = bcrypt($request->get('password'));
+        $request->merge(['password' => $password]);
+        $data = $request->only(['name','email','password']);
+        return $this->userService->create($data);
+    }
 }

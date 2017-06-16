@@ -22,18 +22,25 @@ abstract class FormRequest extends LaravelFormRequest
 
     public function response(array $errors)
     {
-        $transformed = [];
+        if($this->expectsJson()){
+            $transformed = [];
 
-        foreach ($errors as $field => $message) {
-            $transformed[] = [
-                'field' => $field,
-                'message' => $message[0]
-            ];
+            foreach ($errors as $field => $message) {
+                $transformed[] = [
+                    'field' => $field,
+                    'message' => $message[0]
+                ];
+            }
+            return response()->json(
+                new SimpleResponse(false, "Validation Error", $errors, 422),
+                422
+            );
         }
-        return response()->json(
-            new SimpleResponse(false, "Validation Error", $errors, 422),
-            422
-        );
+
+        return $this->redirector->to($this->getRedirectUrl())
+            ->withInput($this->except($this->dontFlash))
+            ->withErrors($errors, $this->errorBag);
+
     }
 
 

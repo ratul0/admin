@@ -42,30 +42,49 @@
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->
 <div class="content">
+    <!-- END LOGIN FORM -->
+    {!! Form::open(['route' => 'web.do.register','method' => 'post']) !!}
+    <h3 class="font-green">Sign Up</h3>
+    <p class="hint"> Enter your account details below: </p>
 
-    <!-- BEGIN LOGIN FORM -->
-    {!! Form::open(['route' => 'web.do.login','method' => 'post']) !!}
-    <h3 class="form-title font-green">Sign In</h3>
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        {!! Form::label('name','E-Mail',['class' => 'control-label visible-ie8 visible-ie9']) !!}
+        {!! Form::text('name',null,['class' => 'form-control form-control-solid placeholder-no-fix','autocomplete' => 'off','placeholder' => 'Username','required']) !!}
+    </div>
+
     <div class="form-group">
         <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
         {!! Form::label('email','E-Mail',['class' => 'control-label visible-ie8 visible-ie9']) !!}
         {!! Form::email('email',null,['class' => 'form-control form-control-solid placeholder-no-fix','autocomplete' => 'off','placeholder' => 'Email-Address','required']) !!}
     </div>
+
     <div class="form-group">
         {!! Form::label('password','Password',['class' => 'control-label visible-ie8 visible-ie9']) !!}
         {!! Form::password('password',['class' => 'form-control form-control-solid placeholder-no-fix','autocomplete' => 'off', 'placeholder' => 'Password','required']) !!}
     </div>
+
+    <div class="form-group">
+        {!! Form::label('password_confirmation','Re-type Your Password',['class' => 'control-label visible-ie8 visible-ie9']) !!}
+        {!! Form::password('password_confirmation',['class' => 'form-control form-control-solid placeholder-no-fix','autocomplete' => 'off', 'placeholder' => 'Re-type Your Password','required']) !!}
+    </div>
+    {{--<div class="form-group margin-top-20 margin-bottom-20">
+        <label class="mt-checkbox mt-checkbox-outline">
+            <input type="checkbox" name="tnc"/> I agree to the
+            <a href="javascript:;">Terms of Service </a> &
+            <a href="javascript:;">Privacy Policy </a>
+            <span></span>
+        </label>
+        <div id="register_tnc_error"></div>
+    </div>--}}
     <div class="form-actions">
-        {!! Form::submit('Login', ['class' => 'btn green uppercase']) !!}
-        {{--<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>--}}
+        <a href="{!! route('web.login') !!}" class="btn green btn-outline">Back</a>
+        {{--<button type="button" id="register-back-btn" class="btn green btn-outline">Back</button>--}}
+        {!! Form::submit('Register', ['class' => 'btn btn-success uppercase pull-right']) !!}
+        {{--<button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>--}}
     </div>
-    <div class="create-account">
-        <p>
-            <a href="{!! route('web.register') !!}" id="register-btn" class="uppercase">Create an account</a>
-        </p>
-    </div>
-{!! Form::close() !!}
-<!-- END LOGIN FORM -->
+    {!! Form::close() !!}
+
 </div>
 <div class="copyright"> {!! date('Y') !!} © {!! \App\BaseSettings\Settings::$company_name !!} </div>
 <!--[if lt IE 9]>
