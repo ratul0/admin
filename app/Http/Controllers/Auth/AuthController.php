@@ -6,6 +6,7 @@ use App\Http\Requests\Auth\UserLogin;
 use App\Services\Auth\WebAuthService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -31,6 +32,22 @@ class AuthController extends Controller
 
     public function doLogin(UserLogin $request)
     {
-        return $request->all();
+        $isSignedIn = $this->webAuthService->signIn($request);
+        if($isSignedIn){
+            return redirect()->route('dashboard.main')->with('success','Welcome back!');
+        }
+        return redirect()->back()->with('error','Invalid Email/Password.');
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout()
+    {
+        if(Auth::check()){
+            Auth::logout();
+            return redirect()->route('web.login')->with('success','You have now been signed out.');
+        }
+        return redirect()->route('web.login')->with('error','You need to login first.');
     }
 }

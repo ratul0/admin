@@ -12,6 +12,7 @@
     {!! Html::style('assets/global/plugins/font-awesome/css/font-awesome.min.css') !!}
     {!! Html::style('assets/global/plugins/simple-line-icons/simple-line-icons.min.css') !!}
     {!! Html::style('assets/global/plugins/bootstrap/css/bootstrap.min.css') !!}
+    {!! Html::style('assets/global/plugins/toastr/toastr.min.css') !!}
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <!-- END PAGE LEVEL PLUGINS -->

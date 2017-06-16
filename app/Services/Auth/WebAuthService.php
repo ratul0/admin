@@ -11,6 +11,7 @@ namespace App\Services\Auth;
 
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WebAuthService
 {
@@ -28,8 +29,24 @@ class WebAuthService
         $this->userService = $userService;
     }
 
-    public function login(Request $request)
+    /**
+     * @param $request
+     * @return bool
+     */
+    public function signIn($request)
     {
-        return $request->all();
+        return Auth::attempt($this->getCredentials($request),$request->has('remember'));
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    private function getCredentials(Request $request)
+    {
+        return [
+            'email' => $request->input('email'),
+            'password' => $request->input('password')
+        ];
     }
 }
