@@ -80,6 +80,8 @@ class ApiAuthService
         $password = bcrypt($request->get('password'));
         $request->merge(['password' => $password]);
         $data = $request->only(['name','email','password']);
-        return $this->userService->create($data);
+        $user =  $this->userService->create($data);
+        $user->assignRole(Settings::$client_role);
+        return $user;
     }
 }

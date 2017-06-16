@@ -9,6 +9,7 @@
 namespace App\Services\Auth;
 
 
+use App\BaseSettings\Settings;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,6 +56,8 @@ class WebAuthService
         $password = bcrypt($request->get('password'));
         $request->merge(['password' => $password]);
         $data = $request->only(['name','email','password']);
-        return $this->userService->create($data);
+        $user =  $this->userService->create($data);
+        $user->assignRole(Settings::$client_role);
+        return $user;
     }
 }
