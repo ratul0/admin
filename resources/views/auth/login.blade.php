@@ -46,7 +46,7 @@
         <div class="form-group">
             <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
             {!! Form::label('email','E-Mail',['class' => 'control-label visible-ie8 visible-ie9']) !!}
-            {!! Form::email('email',null,['class' => 'form-control form-control-solid placeholder-no-fix','autocomplete' => 'off','placeholder' => 'Email-Address','required']) !!}
+            {!! Form::email('email',null,['class' => 'form-control form-control-solid placeholder-no-fix','autocomplete' => 'off','placeholder' => 'Email-Address']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('password','Password',['class' => 'control-label visible-ie8 visible-ie9']) !!}

@@ -4,11 +4,12 @@
             setTimeout(function() {
                 toastr.options = {
                     closeButton: true,
-                    progressBar: true,
+                    progressBar: false,
+                    positionClass: "toast-bottom-right",
                     showMethod: 'slideDown',
                     timeOut: 3000
                 };
-                toastr.success('Admin Panel', "<?php echo $success ?>");
+                toastr.success('', "<?php echo $success ?>");
 
             }, 100);
 
@@ -22,11 +23,12 @@
             setTimeout(function() {
                 toastr.options = {
                     closeButton: true,
-                    progressBar: true,
+                    progressBar: false,
+                    positionClass: "toast-bottom-right",
                     showMethod: 'slideDown',
                     timeOut: 3000
                 };
-                toastr.error('Admin Panel', "<?php echo $error ?>");
+                toastr.error('', "<?php echo $error ?>");
 
             }, 100);
 
@@ -40,11 +42,12 @@
             setTimeout(function() {
                 toastr.options = {
                     closeButton: true,
-                    progressBar: true,
+                    progressBar: false,
+                    positionClass: "toast-bottom-right",
                     showMethod: 'slideDown',
                     timeOut: 3000
                 };
-                toastr.warning('Admin Panel', "<?php echo $warning ?>");
+                toastr.warning('', "<?php echo $warning ?>");
 
             }, 100);
 
@@ -58,11 +61,12 @@
             setTimeout(function() {
                 toastr.options = {
                     closeButton: true,
-                    progressBar: true,
+                    progressBar: false,
+                    positionClass: "toast-bottom-right",
                     showMethod: 'slideDown',
                     timeOut: 3000
                 };
-                toastr.info('Admin Panel', "<?php echo $info ?>");
+                toastr.info('', "<?php echo $info ?>");
 
             }, 100);
 
@@ -78,11 +82,12 @@
                 setTimeout(function() {
                     toastr.options = {
                         closeButton: true,
-                        progressBar: true,
+                        progressBar: false,
+                        positionClass: "toast-bottom-right",
                         showMethod: 'slideDown',
                         timeOut: 3000
                     };
-                    toastr.error('Admin Panel', "<?php echo $error ?>");
+                    toastr.error('', "<?php echo $error ?>");
 
                 }, 100);
 
