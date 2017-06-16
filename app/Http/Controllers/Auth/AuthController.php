@@ -22,14 +22,14 @@ class AuthController extends Controller
         $this->webAuthService = $webAuthService;
     }
 
-    public function test()
-    {
-        return view('admin.dashboard.dashboard');
-    }
-
 
     public function login()
     {
         return view('auth.login');
+    }
+
+    public function doLogin(Request $request)
+    {
+        return $request->all();
     }
 }

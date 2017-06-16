@@ -2,6 +2,7 @@
 namespace App\BaseSettings;
 class Settings
 {
+    public static $company_name = 'Vivacom';
     public static $roles = [
         'admin' => 'Admin',
         'client' => 'Client'

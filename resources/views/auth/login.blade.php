@@ -9,10 +9,10 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Metronic Admin Theme #1 | User Login 1</title>
+    <title>Login</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Preview page of Metronic Admin Theme #1 for " name="description" />
+    <meta content="" name="description" />
     <meta content="" name="author" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -39,29 +39,31 @@
 <!-- BEGIN LOGIN -->
 <div class="content">
     <!-- BEGIN LOGIN FORM -->
-    <form class="login-form" action="index.html" method="post">
+    {!! Form::open(['route' => 'web.do.login','method' => 'post']) !!}
         <h3 class="form-title font-green">Sign In</h3>
         <div class="form-group">
             <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-            <label class="control-label visible-ie8 visible-ie9">Username</label>
-            <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
+            {!! Form::label('email','E-Mail',['class' => 'control-label visible-ie8 visible-ie9']) !!}
+            {!! Form::email('email',null,['class' => 'form-control form-control-solid placeholder-no-fix','autocomplete' => 'off','placeholder' => 'Email-Address','required']) !!}
+        </div>
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Password</label>
-            <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" /> </div>
+            {!! Form::label('password','Password',['class' => 'control-label visible-ie8 visible-ie9']) !!}
+            {!! Form::password('password',['class' => 'form-control form-control-solid placeholder-no-fix','autocomplete' => 'off', 'placeholder' => 'Password','required']) !!}
+        </div>
         <div class="form-actions">
-            <button type="submit" class="btn green uppercase">Login</button>
-            <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+            {!! Form::submit('Login', ['class' => 'btn green uppercase']) !!}
+            {{--<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>--}}
         </div>
         <div class="create-account">
             <p>
                 <a href="javascript:;" id="register-btn" class="uppercase">Create an account</a>
             </p>
         </div>
-    </form>
+    {!! Form::close() !!}
     <!-- END LOGIN FORM -->
 
 </div>
-<div class="copyright"> 2014 © Metronic. Admin Dashboard Template. </div>
+<div class="copyright"> {!! date('Y') !!} © {!! \App\BaseSettings\Settings::$company_name !!} </div>
 <!--[if lt IE 9]>
 <script src="../assets/global/plugins/respond.min.js"></script>
 <script src="../assets/global/plugins/excanvas.min.js"></script>
