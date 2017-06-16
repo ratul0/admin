@@ -4,11 +4,11 @@ class Settings
 {
     public static $company_name = 'Vivacom';
     public static $roles = [
-        'admin' => 'Admin',
-        'client' => 'Client'
+        'admin' => 'admin',
+        'user' => 'user'
     ];
 
     public static $admin_role = 'admin';
-    public static $client_role = 'client';
+    public static $client_role = 'user';
 
 }

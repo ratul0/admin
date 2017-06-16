@@ -21,37 +21,40 @@
             </li>
             <!-- END SIDEBAR TOGGLER BUTTON -->
 
-            <li class="nav-item start active open">
-                <a href="javascript:;" class="nav-link nav-toggle">
+            <li class="nav-item @if (Route::is('dashboard.main'))start active open @endif">
+                <a href="{!! route('dashboard.main') !!}" class="nav-link ">
                     <i class="icon-home"></i>
                     <span class="title">Dashboard</span>
-                    <span class="selected"></span>
-                    <span class="arrow open"></span>
+                    @if (Route::is('dashboard.main'))
+                        <span class="selected"></span>
+                    @endif
+                </a>
+            </li>
+
+            {{--<li class="nav-item @if(Route::is('users.*')) start active open @endif ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-tag"></i>
+                    <span class="title">Users</span>
+                    @if(Route::is('users.*'))
+                        <span class="selected"></span>
+                        <span class="arrow open"></span>
+                    @else
+                        <span class="arrow @if(Route::is('users.*')) open @endif "></span>
+                    @endif
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item start ">
-                        <a href="index.html" class="nav-link ">
-                            <i class="icon-bar-chart"></i>
-                            <span class="title">Dashboard 1</span>
+                    <li class="nav-item  @if (Route::is('users.*'))start active open @endif">
+                        <a href="{{route('users.index')}}" class="nav-link ">
+                            <i class="icon-settings"></i>
+                            <span class="title">Tasks</span>
+                            @if (Route::is('tasks.*'))
+                                <span class="selected"></span>
+                            @endif
                         </a>
                     </li>
-                    <li class="nav-item start active open">
-                        <a href="dashboard_2.html" class="nav-link ">
-                            <i class="icon-bulb"></i>
-                            <span class="title">Dashboard 2</span>
-                            <span class="selected"></span>
-                            <span class="badge badge-success">1</span>
-                        </a>
-                    </li>
-                    <li class="nav-item start ">
-                        <a href="dashboard_3.html" class="nav-link ">
-                            <i class="icon-graph"></i>
-                            <span class="title">Dashboard 3</span>
-                            <span class="badge badge-danger">5</span>
-                        </a>
-                    </li>
+
                 </ul>
-            </li>
+            </li>--}}
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->

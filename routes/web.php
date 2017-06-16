@@ -19,7 +19,7 @@ Route::group(['namespace' => 'Auth'],function (){
     Route::post('register',['as'=>'web.do.register','uses'=>'AuthController@doRegister']);
 });
 
-Route::group(['middleware' => 'auth'],function (){
+Route::group(['middleware' => ['auth','role:admin']],function (){
     Route::get('logout',['as' => 'logout','uses' => 'Auth\AuthController@logout']);
     Route::get('dashboard',['as'=>'dashboard.main','uses'=>'Dashboard\MainDashboardController@dashboard']);
 });
