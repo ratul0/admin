@@ -9,7 +9,7 @@ class MainDashboardController extends Controller
 {
     public function home()
     {
-        return "home";
+        return redirect()->route('dashboard.main');
     }
 
     public function dashboard()
