@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\Auth\UserLogin;
 use App\Services\Auth\WebAuthService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,7 +29,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function doLogin(Request $request)
+    public function doLogin(UserLogin $request)
     {
         return $request->all();
     }

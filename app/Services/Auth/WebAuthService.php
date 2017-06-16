@@ -10,6 +10,7 @@ namespace App\Services\Auth;
 
 
 use App\Services\UserService;
+use Illuminate\Http\Request;
 
 class WebAuthService
 {
@@ -25,5 +26,10 @@ class WebAuthService
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
+    }
+
+    public function login(Request $request)
+    {
+        return $request->all();
     }
 }

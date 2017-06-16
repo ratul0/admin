@@ -17,6 +17,7 @@
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
@@ -38,6 +39,7 @@
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->
 <div class="content">
+
     <!-- BEGIN LOGIN FORM -->
     {!! Form::open(['route' => 'web.do.login','method' => 'post']) !!}
         <h3 class="form-title font-green">Sign In</h3>
@@ -48,7 +50,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('password','Password',['class' => 'control-label visible-ie8 visible-ie9']) !!}
-            {!! Form::password('password',['class' => 'form-control form-control-solid placeholder-no-fix','autocomplete' => 'off', 'placeholder' => 'Password','required']) !!}
+            {!! Form::password('password',['class' => 'form-control form-control-solid placeholder-no-fix','autocomplete' => 'off', 'placeholder' => 'Password']) !!}
         </div>
         <div class="form-actions">
             {!! Form::submit('Login', ['class' => 'btn green uppercase']) !!}
@@ -72,7 +74,9 @@
 <!-- BEGIN CORE PLUGINS -->
 <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/toastr/toastr.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
+@include('partials.toastr')
 </body>
 
 </html>
