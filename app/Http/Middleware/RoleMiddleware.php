@@ -22,7 +22,7 @@ class RoleMiddleware
         }
 
         if (! $request->user()->hasRole($role)) {
-            abort(403);
+            return redirect()->route('dashboard.main')->with('error','Access Denied.');
         }
 
         return $next($request);
