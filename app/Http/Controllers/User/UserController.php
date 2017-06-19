@@ -24,6 +24,7 @@ class UserController extends Controller
 
     public function index()
     {
-        return $this->userService->getFilterWithPaginatedData([]);
+        $users = $this->userService->getFilterWithPaginatedData([]);
+        return view('users.index')->with('users',$users);
     }
 }
