@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Services\UserService;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Rashidul\RainDrops\Facades\FormBuilder;
 
 class UserController extends Controller
 {
@@ -24,13 +26,19 @@ class UserController extends Controller
 
     public function index()
     {
+
         $users = $this->userService->getFilterWithPaginatedData([]);
         return view('users.index')->with('users',$users);
     }
 
     public function create()
     {
-        return view('users.create');
+       $user = new User();
+        $form = FormBuilder::build($user)->form([
+            'action' => 'users.store',
+            'method' => 'POST'
+        ])->render();
+        return view('users.form',compact('form'));
     }
 
     public function destroy($id)

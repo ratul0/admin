@@ -172,6 +172,7 @@ return [
         PrettyRoutes\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Rashidul\RainDrops\RainDropsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -233,6 +234,9 @@ return [
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'FormBuilder' => Rashidul\RainDrops\Facades\FormBuilder::class,
+
+
 
     ],
 

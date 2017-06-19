@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Rashidul\RainDrops\Facades\FormBuilder;
 
 class User extends Authenticatable
 {
@@ -27,4 +28,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $fields = [
+        'name' => [
+            'label' => 'Username',
+            'type' => 'text'
+        ],
+        'email' => [
+            'label' => 'Email',
+            'type' => 'email',
+            'validations' => 'unique:users,email{id}',
+            'unique' => true,
+            'filter' => 'string'
+        ]
+    ];
+
+    public $baseUrl = '/users';
 }
