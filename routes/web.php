@@ -24,3 +24,7 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('dashboard',['as'=>'dashboard.main','uses'=>'Dashboard\MainDashboardController@dashboard']);
     Route::resource('users','User\UserController');
 });
+
+Route::group(['middleware' => ['auth','role:admin']],function (){
+    Route::resource('users','User\UserController');
+});
