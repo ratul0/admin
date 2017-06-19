@@ -31,10 +31,10 @@
                 </a>
             </li>
 
-            {{--<li class="nav-item @if(Route::is('users.*')) start active open @endif ">
+            <li class="nav-item @if(Route::is('users.*')) start active open @endif ">
                 <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-tag"></i>
-                    <span class="title">Users</span>
+                    <i class="icon-user"></i>
+                    <span class="title">User Management</span>
                     @if(Route::is('users.*'))
                         <span class="selected"></span>
                         <span class="arrow open"></span>
@@ -45,16 +45,16 @@
                 <ul class="sub-menu">
                     <li class="nav-item  @if (Route::is('users.*'))start active open @endif">
                         <a href="{{route('users.index')}}" class="nav-link ">
-                            <i class="icon-settings"></i>
-                            <span class="title">Tasks</span>
-                            @if (Route::is('tasks.*'))
+                            <i class="icon-users"></i>
+                            <span class="title">Users</span>
+                            @if (Route::is('users.*'))
                                 <span class="selected"></span>
                             @endif
                         </a>
                     </li>
 
                 </ul>
-            </li>--}}
+            </li>
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->
