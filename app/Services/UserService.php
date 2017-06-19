@@ -10,6 +10,7 @@ namespace App\Services;
 
 
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\DB;
 
 class UserService extends BaseService
 {
@@ -25,6 +26,20 @@ class UserService extends BaseService
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
+    }
+
+    public function delete($id)
+    {
+        DB::beginTransaction();
+        try{
+            DB::table('model_has_roles')->where('model_id',$id)->delete();
+            DB::table('model_has_permissions')->where('model_id',$id)->delete();
+            $status =  $this->userRepository->delete($id);
+            DB::commit();
+            return $status;
+        }catch (\Exception $exception){
+            DB::rollBack();
+        }
     }
 
 
