@@ -115,7 +115,7 @@
 <script src="../assets/particles/particles.min.js"></script>
 <script>
     particlesJS.load('particle', '../assets/particles.json', function() {
-        console.log('callback - particles.js config loaded');
+        //console.log('callback - particles.js config loaded');
     });
 </script>
 <!-- END CORE PLUGINS -->
