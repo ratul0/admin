@@ -30,18 +30,33 @@
     <!-- BEGIN THEME LAYOUT STYLES -->
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
+    <style>
+        #particle {
+            background-color: #000000;
+            position:fixed;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            z-index:0;
+        }
+        .overlay {
+            position: relative;
+        }
+    </style>
 </head>
 <!-- END HEAD -->
 
-<body class=" login">
+<body class="login">
+<div id="particle"></div>
 <!-- BEGIN LOGO -->
-<div class="logo">
+<div class="logo overlay">
     <a href="index.html">
         <img src="../assets/pages/img/logo-big.png" alt=""/> </a>
 </div>
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->
-<div class="content">
+<div class="content overlay">
 
     <!-- BEGIN LOGIN FORM -->
     {!! Form::open(['route' => 'web.do.login','method' => 'post']) !!}
@@ -77,6 +92,12 @@
 <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="../assets/global/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+<script src="../assets/particles/particles.min.js"></script>
+<script>
+    particlesJS.load('particle', '../assets/particles.json', function() {
+        console.log('callback - particles.js config loaded');
+    });
+</script>
 <!-- END CORE PLUGINS -->
 @include('partials.toastr')
 </body>
