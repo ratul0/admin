@@ -33,7 +33,8 @@ class User extends Authenticatable
         'name' => [
             'label' => 'Username',
             'type' => 'text',
-            'required' => true
+            'required' => true,
+            'index' => true
         ],
         'email' => [
             'label' => 'Email',
@@ -41,8 +42,13 @@ class User extends Authenticatable
             'validations' => 'unique:users,email{id}',
             'unique' => true,
             'filter' => 'string',
-            'required' => true
+            'required' => true,
+            'index' => true
         ]
+    ];
+
+    public $actions = [
+        'Test' => 'test'
     ];
 
     public $baseUrl = 'users';

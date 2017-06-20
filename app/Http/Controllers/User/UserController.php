@@ -76,8 +76,8 @@ class UserController extends Controller
         try{
             $user = $this->userService->find($id);
             $form = FormBuilder::build($user)->form([
-                'action' => 'users/',
-                'method' => 'POST'
+                'action' => 'users/'.$id,
+                'method' => 'PUT'
             ])->render();
             return view('users.form',compact('form'));
         }catch (\Exception $exception){

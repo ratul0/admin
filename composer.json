@@ -12,7 +12,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
         "league/fractal": "^0.16.0",
-        "rashidul/raindrops": "0.2.0",
+        "rashidul/raindrops": "0.2.1",
         "spatie/laravel-medialibrary": "^5.0.0",
         "spatie/laravel-permission": "^2.1",
         "tymon/jwt-auth": "0.5.*",
