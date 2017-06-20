@@ -26,5 +26,6 @@ Route::group(['middleware' => ['auth']],function (){
 });
 
 Route::group(['middleware' => ['auth','role:admin']],function (){
+    Route::get('datatables-users',['as' => 'datatables.users','uses' => 'User\UserController@tableData']);
     Route::resource('users','User\UserController');
 });

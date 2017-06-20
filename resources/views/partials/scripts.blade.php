@@ -4,9 +4,10 @@
 {!! Html::script('assets/global/plugins/ie8.fix.min.js') !!}
 <![endif]-->
 <!-- BEGIN CORE PLUGINS -->
-{!! Html::script('assets/global/plugins/jquery.min.js') !!}
+
 {!! Html::script('assets/global/plugins/bootstrap/js/bootstrap.min.js') !!}
 {!! Html::script('assets/global/plugins/toastr/toastr.min.js') !!}
+
 <!-- END CORE PLUGINS -->
 @include('partials.toastr')
 

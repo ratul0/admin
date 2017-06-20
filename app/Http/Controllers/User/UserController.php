@@ -7,7 +7,10 @@ use App\Services\UserService;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Rashidul\RainDrops\Facades\DataTable;
 use Rashidul\RainDrops\Facades\FormBuilder;
+use Rashidul\RainDrops\Table\DataTableTransformer;
+use Yajra\Datatables\Datatables;
 
 class UserController extends Controller
 {
@@ -27,14 +30,29 @@ class UserController extends Controller
 
     public function index()
     {
+        $table = DataTable::of(new User())
+            ->setUrl(route('datatables.users'))
+            ->setId('user-table')
+            ->render();
 
-        $users = $this->userService->getFilterWithPaginatedData([]);
-        return view('users.index')->with('users',$users);
+        return view('users.index', compact('table'));
+
+//        $users = $this->userService->getFilterWithPaginatedData([]);
+//        return view('users.index-old')->with('users',$users);
+    }
+
+    public function tableData(Datatables $datatables)
+    {
+        $query = User::select();
+
+        return $datatables->eloquent($query)
+            ->setTransformer(new DataTableTransformer())
+            ->make(true);
     }
 
     public function create()
     {
-       $user = new User();
+        $user = new User();
         $form = FormBuilder::build($user)->form([
             'action' => 'users',
             'method' => 'POST'
@@ -50,6 +68,20 @@ class UserController extends Controller
             return redirect()->route('users.index')->with('success','User Created Successfully');
         }catch (\Exception $exception){
             return redirect()->route('users.index')->with('error','Something went wrong. Try Again.');
+        }
+    }
+
+    public function edit($id)
+    {
+        try{
+            $user = $this->userService->find($id);
+            $form = FormBuilder::build($user)->form([
+                'action' => 'users/',
+                'method' => 'POST'
+            ])->render();
+            return view('users.form',compact('form'));
+        }catch (\Exception $exception){
+
         }
     }
 

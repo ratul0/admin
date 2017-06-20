@@ -13,6 +13,7 @@
     {!! Html::style('assets/global/plugins/simple-line-icons/simple-line-icons.min.css') !!}
     {!! Html::style('assets/global/plugins/bootstrap/css/bootstrap.min.css') !!}
     {!! Html::style('assets/global/plugins/toastr/toastr.min.css') !!}
+    {!! Html::style('assets/datatables/jquery.dataTables.min.css') !!}
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <!-- END PAGE LEVEL PLUGINS -->
@@ -27,5 +28,7 @@
     @yield('styles')
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
+    {!! Html::script('assets/global/plugins/jquery.min.js') !!}
+    {!! Html::script('assets/datatables/jquery.dataTables.min.js') !!}
 </head>
 <!-- END HEAD -->
