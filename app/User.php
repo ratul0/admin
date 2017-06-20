@@ -29,19 +29,21 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $fields = [
+    public $fields = [
         'name' => [
             'label' => 'Username',
-            'type' => 'text'
+            'type' => 'text',
+            'required' => true
         ],
         'email' => [
             'label' => 'Email',
             'type' => 'email',
             'validations' => 'unique:users,email{id}',
             'unique' => true,
-            'filter' => 'string'
+            'filter' => 'string',
+            'required' => true
         ]
     ];
 
-    public $baseUrl = '/users';
+    public $baseUrl = 'users';
 }

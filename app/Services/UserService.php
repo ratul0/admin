@@ -9,7 +9,9 @@
 namespace App\Services;
 
 
+use App\BaseSettings\Settings;
 use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class UserService extends BaseService
@@ -26,6 +28,16 @@ class UserService extends BaseService
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
+    }
+
+    public function saveUser(Request $request)
+    {
+        $password = bcrypt('123456');
+        $request->merge(['password' => $password]);
+        $data = $request->only(['name','email','password']);
+        $user =  $this->userRepository->create($data);
+        $user->assignRole(Settings::$client_role);
+        return $user;
     }
 
     public function delete($id)

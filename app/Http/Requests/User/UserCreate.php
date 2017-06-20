@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Requests\User;
 
 use App\Http\Requests\FormRequest;
 
-class UserLogin extends FormRequest
+class UserCreate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class UserLogin extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required',
-            'password' => 'required'
+            'name' => 'required',
+            'email' => 'required|email'
         ];
     }
 }
