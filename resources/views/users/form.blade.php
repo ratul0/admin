@@ -19,8 +19,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="portlet-body">
+                <div class="portlet-body form">
+                    <div class="form-body">
                     {!! $form !!}
+                    </div>
                 </div>
             </div>
             <!-- END EXAMPLE TABLE PORTLET-->

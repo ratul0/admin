@@ -47,9 +47,5 @@ class User extends Authenticatable
         ]
     ];
 
-    public $actions = [
-        'Test' => 'test'
-    ];
-
     public $baseUrl = 'users';
 }

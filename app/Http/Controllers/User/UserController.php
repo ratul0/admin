@@ -78,10 +78,21 @@ class UserController extends Controller
             $form = FormBuilder::build($user)->form([
                 'action' => 'users/'.$id,
                 'method' => 'PUT'
-            ])->render();
+            ])->remove('email')->render();
             return view('users.form',compact('form'));
         }catch (\Exception $exception){
+            return redirect()->route('users.index')->with('error','Invalid user.');
+        }
+    }
 
+    public function update($id, Request $request)
+    {
+        try{
+            $user = $this->userService->find($id);
+            $this->userService->updateUser($user,$request);
+            return redirect()->route('users.index')->with('success','User updated Successfully');
+        }catch (\Exception $exception){
+            return redirect()->route('users.index')->with('error','Invalid user.');
         }
     }
 

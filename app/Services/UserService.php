@@ -11,6 +11,7 @@ namespace App\Services;
 
 use App\BaseSettings\Settings;
 use App\Repositories\UserRepository;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -63,5 +64,12 @@ class UserService extends BaseService
     public function baseRepository()
     {
         return $this->userRepository;
+    }
+
+    public function updateUser(User $user, Request $request)
+    {
+        $data = $request->only(['name']);
+
+        return $this->userRepository->update($data,$user->id);
     }
 }
