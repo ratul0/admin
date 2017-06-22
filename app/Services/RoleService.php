@@ -20,4 +20,17 @@ class RoleService
         $data = $request->only(['name']);
         return Role::create($data);
     }
+
+    public function find($id)
+    {
+        return Role::where('id',$id)->first();
+    }
+
+    public function updateRole(Role $role,Request $request)
+    {
+        $data = $request->only(['name']);
+
+        return $role->update($data);
+
+    }
 }

@@ -67,4 +67,29 @@ class RoleController extends Controller
             return redirect()->route('roles.index')->with('error','Something went wrong. Try Again.');
         }
     }
+
+    public function edit($id)
+    {
+        try{
+            $role = $this->roleService->find($id);
+            $form = FormBuilder::build($role)->form([
+                'action' => 'roles/'.$id,
+                'method' => 'PUT'
+            ])->render();
+            return view('roles.form',compact('form'));
+        }catch (\Exception $exception){
+            return redirect()->route('roles.index')->with('error','Invalid role.');
+        }
+    }
+
+    public function update($id, RoleCreate $request)
+    {
+        try{
+            $role = $this->roleService->find($id);
+            $this->roleService->updateRole($role,$request);
+            return redirect()->route('roles.index')->with('success','Role updated Successfully');
+        }catch (\Exception $exception){
+            return redirect()->route('roles.index')->with('error','Invalid user.');
+        }
+    }
 }
